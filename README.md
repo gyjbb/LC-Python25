@@ -7,7 +7,7 @@ June 26, 2023  4h
 
 Congratulations!\
 This is the 25th day for leetcode python study. Today we will learn more about the Backtracking!\
-The challenges today are about ~~need to delete later~~.
+The challenges today are about how to use set to remove duplicates, and how to cut branch in the for loop. And only collecte the desired results in the backtracking function.~~need to delete later~~.
 
 
 ## 491.Non-decreasing Subsequences
@@ -26,13 +26,13 @@ class Solution:
         return result
 
     def backtracking(self, nums, startIndex, path, result):
-        if len(path) > 1:
+        if len(path) > 1:    #only collect desired results!
             result.append(path[:])
             #attention: no return here, just collect all nodes on the tree
         
         uset = set()    #use set to remove duplicate on the same tree layer
         for i in range(startIndex, len(nums)):
-            if nums[i] in uset or (path and nums[i]<path[-1]):
+            if nums[i] in uset or (path and nums[i]<path[-1]):    #remove dup and cut branch, soo cool!
                 continue    #branch cutting for 2 conditions
             
             uset.add(nums[i])   #record the element has been used in this tree layer
