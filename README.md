@@ -1,7 +1,7 @@
 # LC-Python25
 Backtracking 5
 
-## 491.Non-decreasing Subsequences, 
+## 491.Non-decreasing Subsequences, 46.Permutations
 
 June 26, 2023  4h
 
@@ -42,8 +42,30 @@ class Solution:
 ```
 
 
-## 46.
-全排列 本题重点感受一下，排列问题 与 组合问题，组合总和，子集问题的区别。 为什么排列问题不用 startIndex 
+## 46.Permutations
+So the permutation question is different from the conbination and subset questions, and don't need a startIndex because the order of the numbers matters. Here we use used array to mark which number has already been used. \
+And all the results for possible permutations are in the leaf nodes. The termination condition is that the results size equals to the given numbers size.
+```python
+# ways 1: use set to remove duplicates, no startIndex!
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        result =[]
+        self.backtracking(nums, [], [False]*len(nums), result)
+        return result
+
+    def backtracking(self, nums, path, used, result):
+        if len(path)==len(nums):
+            result.append(path[:])
+            
+        for i in range(len(nums)):
+            if used[i]:
+                continue
+            used[i] = True
+            path.append(nums[i])
+            self.backtracking(nums, path, used, result)
+            path.pop()
+            used[i] = False
+```
 
 
 ## 47.
