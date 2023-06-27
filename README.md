@@ -5,10 +5,10 @@ Backtracking 5
 
 June 26, 2023  4h
 
-Congratulations!\
-This is the 25th day for leetcode python study. Today we will learn more about the Backtracking!\
-The challenges today are about how to use set to remove duplicates, and how to cut branch in the for loop. And only collecte the desired results in the backtracking function.\
-And we also learned the permutation questions here. No startIndex is needed, But we used set to remove duplicates and distinguished how to remove duplicates on the same tree layer and on the tree branch again.
+Congratulations!
+This is the 25th day for leetcode python study. Today we will learn more about Backtracking!
+The challenges today are about how to use a set to remove duplicates, and how to cut branches in the for loop. And only collect the desired results in the backtracking function.
+And we also learned the permutation questions here. No startIndex is needed, But we used a set to remove duplicates and distinguished how to remove duplicates on the same tree layer and on the tree branch again.
 
 
 ## 491.Non-decreasing Subsequences
