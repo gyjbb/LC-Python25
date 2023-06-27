@@ -68,6 +68,30 @@ class Solution:
 ```
 
 
-## 47.
-全排列 II 本题 就是我们讲过的 40.组合总和II 去重逻辑 和 46.全排列 的结合，可以先自己做一下，然后重点看一下 文章中 我讲的拓展内容。 used[i - 1] == true 也行，used[i - 1] == false 也行 
+## 47.Permutations II
+Need to remove duplicates on the same tree layer, while the duplicates on the tree depth is allowed. To remove duplicates and keep the same numbers together, we need to sort the given array first.\
+used[i - 1] == true，used[i - 1] == false will both work.\
+```python
+# ways 1: 
+class Solution:
+    def permuteUnique(self, nums: List[int]) -> List[List[int]]:
+        nums.sort()
+        result = []
+        self.backtracking(nums, [], [False]*len(nums), result)
+        return result
+    
+    def backtracking(self, nums, path, used, result):
+        if len(path)==len(nums):
+            result.append(path[:])
+        
+        for i in range(len(nums)):
+            if used[i] or (i>0 and nums[i]==nums[i-1] and not used[i-1]):
+                continue
+            used[i] = True
+            path.append(nums[i])
+            self.backtracking(nums, path, used, result)
+            path.pop()
+            used[i] =  False
+```
+
 
