@@ -7,7 +7,8 @@ June 26, 2023  4h
 
 Congratulations!\
 This is the 25th day for leetcode python study. Today we will learn more about the Backtracking!\
-The challenges today are about how to use set to remove duplicates, and how to cut branch in the for loop. And only collecte the desired results in the backtracking function.~~need to delete later~~.
+The challenges today are about how to use set to remove duplicates, and how to cut branch in the for loop. And only collecte the desired results in the backtracking function.\
+And we also learned the permutation questions here. No startIndex is needed, But we used set to remove duplicates and distinguished how to remove duplicates on the same tree layer and on the tree branch again.
 
 
 ## 491.Non-decreasing Subsequences
@@ -32,7 +33,7 @@ class Solution:
         
         uset = set()    #use set to remove duplicate on the same tree layer
         for i in range(startIndex, len(nums)):
-            if nums[i] in uset or (path and nums[i]<path[-1]):    #remove dup and cut branch, soo cool!
+            if nums[i] in uset or (path and nums[i]<path[-1]):    #remove duplicates on the same tree layer, and keep the numbers increasing
                 continue    #branch cutting for 2 conditions
             
             uset.add(nums[i])   #record the element has been used in this tree layer
@@ -43,8 +44,8 @@ class Solution:
 
 
 ## 46.Permutations
-So the permutation question is different from the conbination and subset questions, and don't need a startIndex because the order of the numbers matters. Here we use used array to mark which number has already been used. \
-And all the results for possible permutations are in the leaf nodes. The termination condition is that the results size equals to the given numbers size.
+So the permutation question is different from the combination and subset questions, and doesn't need a startIndex because the order of the numbers matters. Here we use used array to mark which number has already been used. \
+And all the results for possible permutations are in the leaf nodes. The termination condition is that the result size equals the given numbers size.
 ```python
 # ways 1: use set to remove duplicates, no startIndex!
 class Solution:
@@ -70,7 +71,7 @@ class Solution:
 
 ## 47.Permutations II
 Need to remove duplicates on the same tree layer, while the duplicates on the tree depth is allowed. To remove duplicates and keep the same numbers together, we need to sort the given array first.\
-used[i - 1] == true，used[i - 1] == false will both work.\
+used[i - 1] == true，used[i - 1] == false will both work.
 ```python
 # ways 1: 
 class Solution:
